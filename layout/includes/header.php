@@ -136,7 +136,8 @@ require_once($OUTPUT->get_include_file('pagesettings'));
                         <?php echo $OUTPUT->get_title('navbar'); ?>
                     <div class="pull-<?php echo ($left) ? 'right' : 'left'; ?>">
                         <div class="usermenu">
-                            <?php echo $OUTPUT->custom_menu_user(); ?>
+                            <?php //echo $OUTPUT->custom_menu_user(); ?> <!-- SEBTS CUSTOM -->
+                            <?php echo $OUTPUT->custom_SEBTS_login_logout_button($PAGE); ?>  <!-- SEBTS CUSTOM -->
                         </div>
                         <div class="messagemenu">
                             <?php echo $OUTPUT->custom_menu_messages(); ?>

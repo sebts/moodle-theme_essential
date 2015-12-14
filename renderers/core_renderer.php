@@ -122,11 +122,37 @@ class theme_essential_core_renderer extends core_renderer {
     }
 
     /**
+     * SEBTS: Renders the LOG IN/ LOG OUT BUTTON
+     * @param url_select $PAGE
+     * @return string $content
+     */
+    
+    protected function custom_SEBTS_login_logout_button($PAGE) {
+        if (isloggedin() and !isguestuser()) {
+            $content  = '<ul class="nav"><li><a class="SEBTSbtn" href="';
+            $content .= new moodle_url('/login/logout.php', array('sesskey' => sesskey()));
+            $content .= '">LOG OUT</a></li></ul>';
+            return $content;
+        }
+        else {
+            if ($PAGE->url != get_login_url()){ 
+                $content  = '<ul class="nav"><li><a class="SEBTSbtn" href="';
+                $content .= get_login_url();
+                $content .= '">LOG IN</a></li></ul>';
+                return $content;
+            }
+            return false;
+        }
+    }
+
+    /**
      * Renders the custom_menu
      * @param custom_menu $menu
      * @return string $content
      */
     protected function render_custom_menu(custom_menu $menu) {
+        global $USER;
+        global $CFG;
 
         $content = '<ul class="nav">';
         foreach ($menu->get_children() as $item) {
