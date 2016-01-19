@@ -63,7 +63,8 @@ require_once($OUTPUT->get_include_file('pagesettings'));
                             <?php echo $OUTPUT->get_title('header'); ?>
                         </a>
                     <?php } else { ?>
-                        <a class="logo" href="<?php echo preg_replace("(https?:)", "", $CFG->wwwroot); ?>" title="<?php print_string('home'); ?>"></a>
+                        <!--<a class="logo" href="<?php echo preg_replace("(https?:)", "", $CFG->wwwroot); ?>" title="<?php print_string('home'); ?>"></a>-->
+                        <a class="logo" href="//cert.sebts.edu/cert" title="Home" style="height:150px;margin:0px;background-image: url('http://apps.sebts.edu/cert/headerlogo_b1.png');background-position: top center;"></a>  <!-- SEBTS -->
                     <?php } ?>
                 </div>
                 <?php if ($hassocialnetworks || $hasmobileapps) { ?>
