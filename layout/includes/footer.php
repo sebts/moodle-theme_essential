@@ -28,23 +28,27 @@ if (empty($PAGE->layout_options['nofooter'])) { ?>
     <footer role="contentinfo" id="page-footer">
         <div class="container-fluid">
             <?php echo $OUTPUT->essential_edit_button('theme_essential_footer'); ?>
-            <div class="row-fluid footerblocks">
-                <div class="span4 pull-left">
-                    <div class="column">
-                        <?php echo $OUTPUT->blocks('footer-left'); ?>
+            <?php if (isloggedin()==true) {?>
+                <?php if (is_siteadmin($USER)==true){ ?>            
+                <div class="row-fluid footerblocks">
+                    <div class="span4 pull-left">
+                        <div class="column">
+                            <?php echo $OUTPUT->blocks('footer-left'); ?>
+                        </div>
+                    </div>
+                    <div class="span4 center">
+                        <div class="column">
+                            <?php echo $OUTPUT->blocks('footer-middle'); ?>
+                        </div>
+                    </div>
+                    <div class="span4 pull-right">
+                        <div class="column">
+                            <?php echo $OUTPUT->blocks('footer-right'); ?>
+                        </div>
                     </div>
                 </div>
-                <div class="span4 center">
-                    <div class="column">
-                        <?php echo $OUTPUT->blocks('footer-middle'); ?>
-                    </div>
-                </div>
-                <div class="span4 pull-right">
-                    <div class="column">
-                        <?php echo $OUTPUT->blocks('footer-right'); ?>
-                    </div>
-                </div>
-            </div>
+                <?php } ?>
+            <?php } ?>
             <div class="footerlinks row-fluid">
                 <hr/>
                 <span class="helplink"><?php echo page_doc_link(get_string('moodledocslink')); ?></span>
