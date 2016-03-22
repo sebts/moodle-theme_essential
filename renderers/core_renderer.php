@@ -161,6 +161,7 @@ class theme_essential_core_renderer extends core_renderer {
         global $CFG;
 
         $content = '<ul class="nav">';
+        $content .= '<li><span class="gologos" style="background-image:url(\''.$CFG->wwwroot.'/sebtsimages/sebts-go-logos.png\');"></span></li>'; //SEBTS Custom
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }

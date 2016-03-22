@@ -62,8 +62,8 @@ require_once($OUTPUT->get_include_file('pagesettings'));
                             <i id="headerlogo" class="fa fa-<?php echo $OUTPUT->get_setting('siteicon'); ?>"></i>
                             <?php echo $OUTPUT->get_title('header'); ?>
                         </a>
-                    <?php } else { ?>
-                        <a class="headerlogo" href="<?php echo preg_replace("(https?:)", "", $CFG->wwwroot); ?>" title="Home"></a>  <!-- SEBTS -->
+                    <?php } else { ?> 
+                        <a class="headerlogo" <?php echo 'style=" background-image:url(\''.$CFG->wwwroot.'/sebtsimages/headerlogo.png\')"' ?>  href="<?php echo preg_replace("(https?:)", "", $CFG->wwwroot); ?>" title="Home"></a>  <!-- SEBTS -->
                     <?php } ?>
                 </div>
                 <?php if ($hassocialnetworks || $hasmobileapps) { ?>
