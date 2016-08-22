@@ -122,7 +122,12 @@ class theme_essential_core_renderer extends core_renderer {
             $custommenuitems = $CFG->custommenuitems;
         }
         $custommenu = new custom_menu($custommenuitems, current_language());
-        return $this->render_custom_menu($custommenu);
+        $ret = $this->render_custom_menu($custommenu);
+        // SEBTS eCampusBookstore
+        if (isloggedin()){
+            $ret .= '<ul class="nav" id="eCampus"><li><a href="'.$CFG->wwwroot.'/blocks/ecampusbookstore/ecampusbookstoreform.php"</a>eCampusBookstore</a></li></ul>';   
+        }        
+        return $ret;
     }
 
     /**
