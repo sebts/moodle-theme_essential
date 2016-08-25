@@ -661,7 +661,7 @@ class theme_essential_core_renderer extends core_renderer {
         $usermenu = html_writer::start_tag('ul', array('class' => 'nav'));
         $usermenu .= html_writer::start_tag('li', array('class' => 'dropdown'));
 
-        if (!isloggedin()) {
+        if (!isloggedin() || isguestuser()) { //SEBTS
             if ($this->page->pagelayout != 'login') {
                 $userpic = '<em><i class="fa fa-sign-in"></i>' . get_string('login') . '</em>';
                 $usermenu .= html_writer::link($loginurl, $userpic, array('class' => 'loginurl'));
