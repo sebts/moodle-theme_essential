@@ -124,8 +124,8 @@ class theme_essential_core_renderer extends core_renderer {
         $custommenu = new custom_menu($custommenuitems, current_language());
         $ret = $this->render_custom_menu($custommenu);
         // SEBTS eCampusBookstore
-        if (isloggedin()){
-            $ret .= '<ul class="nav" id="eCampus"><li><a href="'.$CFG->wwwroot.'/blocks/ecampusbookstore/ecampusbookstoreform.php"</a>eCampusBookstore</a></li></ul>';   
+        if (isloggedin() and !isguestuser()){
+            $ret .= '<ul class="nav" id="eCampus"><li><a href="'.$CFG->wwwroot.'/blocks/ecampusbookstore/ecampusbookstoreform.php"</a>Virtual Bookstore</a></li></ul>';   
         }        
         return $ret;
     }
