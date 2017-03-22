@@ -126,13 +126,13 @@ class theme_essential_core_renderer extends core_renderer {
      * @param url_select $PAGE
      * @return string $content
      */
-    
+
     protected function custom_SEBTS_nav_buttons($PAGE) {
         global $CFG;
         if (isloggedin() and !isguestuser()) {
             $content  = '<ul class="nav">';
             $content .= '<li><a class="SEBTSbtn" href="';
-            $content .= new moodle_url($CFG->wwwroot.'/my');
+            $content .= new moodle_url(preg_replace("(https?:)", "", $CFG->wwwroot).'/my');
             $content .= '"><i class="fa fa-university"></i>&nbsp;&nbsp;MY COURSES</a></li>';
             $content .= '<li><a class="SEBTSbtn" href="';
             $content .= new moodle_url('/login/logout.php', array('sesskey' => sesskey()));
@@ -141,7 +141,7 @@ class theme_essential_core_renderer extends core_renderer {
             return $content;
         }
         else {
-            if ($PAGE->url != get_login_url()){ 
+            if ($PAGE->url != get_login_url()){
                 $content  = '<ul class="nav"><li><a class="SEBTSbtn" href="';
                 $content .= get_login_url();
                 $content .= '"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;LOG IN</a></li></ul>';
@@ -161,7 +161,7 @@ class theme_essential_core_renderer extends core_renderer {
         global $CFG;
 
         $content = '<ul class="nav">';
-        $content .= '<li><span class="gologos" style="background-image:url(\''.$CFG->wwwroot.'/sebtsimages/sebts-go-logos.png\');"></span></li>'; //SEBTS Custom
+        $content .= '<li><span class="gologos" style="background-image:url(\''.preg_replace("(https?:)", "", $CFG->wwwroot).'/sebtsimages/sebts-go-logos.png\');"></span></li>'; //SEBTS Custom
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }
@@ -1383,7 +1383,7 @@ class theme_essential_core_renderer extends core_renderer {
         if ($captionoptions == 0) {
             $slide .= '<div class="container-fluid">';
             $slide .= '<div class="row-fluid">';
-        
+
             if ($slidetitle || $slidecaption) {
                 $slide .= '<div class="span5 the-side-caption">';
                 $slide .= '<div class="the-side-caption-content">';
