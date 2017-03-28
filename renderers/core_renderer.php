@@ -131,9 +131,8 @@ class theme_essential_core_renderer extends core_renderer {
         global $CFG;
         if (isloggedin() and !isguestuser()) {
             $content  = '<ul class="nav">';
-            $content .= '<li><a class="SEBTSbtn" href="';
-            $content .= new moodle_url(preg_replace("(https?:)", "", $CFG->wwwroot).'/my');
-            $content .= '"><i class="fa fa-university"></i>&nbsp;&nbsp;MY COURSES</a></li>';
+            $content .= '<li><a class="SEBTSbtn" href="'.$CFG->wwwroot.'/my">';
+            $content .= '<i class="fa fa-university"></i>&nbsp;&nbsp;MY COURSES</a></li>';
             $content .= '<li><a class="SEBTSbtn" href="';
             $content .= new moodle_url('/login/logout.php', array('sesskey' => sesskey()));
             $content .= '"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;LOG OUT</a></li>';
