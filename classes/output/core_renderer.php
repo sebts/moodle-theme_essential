@@ -499,7 +499,12 @@ class core_renderer extends \core_renderer {
             $custommenuitems = $CFG->custommenuitems;
         }
         $custommenu = new custom_menu($custommenuitems, current_language());
-        return $this->render_the_custom_menu($custommenu, 'custom_menu', true);
+        // SEBTS eCampusBookstore
+        $ret = $this->render_custom_menu($custommenu);
+        if (isloggedin() and !isguestuser()){
+            $ret .= '<ul class="nav" id="eCampus"><li><a href="'.$CFG->wwwroot.'/blocks/ecampusbookstore/ecampusbookstoreform.php"</a>Virtual Bookstore</a></li></ul>';
+        }
+        return $ret;
     }
 
     /**
