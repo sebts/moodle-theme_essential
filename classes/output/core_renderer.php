@@ -960,14 +960,14 @@ class core_renderer extends \core_renderer {
                 $branchlabel = $this->getfontawesomemarkup('users').$branchtitle;
                 $branchurl = new moodle_url('/user/index.php', array('id' => $this->page->course->id));
                 $branch->add($branchlabel, $branchurl, $branchtitle, 100003);
-                $context = context_course::instance($this->page->course->id);
-                if (((has_capability('gradereport/overview:view', $context) || has_capability('gradereport/user:view', $context)) &&
-                        $this->page->course->showgrades) || has_capability('gradereport/grader:view', $context)) {
-                    $branchtitle = get_string('grades');
-                    $branchlabel = $this->getfontawesomemarkup('list-alt', array('icon')).$branchtitle;
-                    $branchurl = new moodle_url('/grade/report/index.php', array('id' => $this->page->course->id));
-                    $branch->add($branchlabel, $branchurl, $branchtitle, 100004);
-                }
+                //$context = context_course::instance($this->page->course->id); 
+                //if (((has_capability('gradereport/overview:view', $context) || has_capability('gradereport/user:view', $context)) &&
+                //        $this->page->course->showgrades) || has_capability('gradereport/grader:view', $context)) {
+                //    $branchtitle = get_string('grades');
+                //    $branchlabel = $this->getfontawesomemarkup('list-alt', array('icon')).$branchtitle;
+                //    $branchurl = new moodle_url('/grade/report/index.php', array('id' => $this->page->course->id));
+                //    $branch->add($branchlabel, $branchurl, $branchtitle, 100004);
+                //}
 
                 $data = $this->get_course_activities();
                 foreach ($data as $modname => $modfullname) {
@@ -1530,29 +1530,29 @@ class core_renderer extends \core_renderer {
             }
 
             // Output user grade links, course sensitive where appropriate.
-            if ($course->id == SITEID) {
-                $branchlabel = '<em>'.$this->getfontawesomemarkup('list-alt').get_string('mygrades', 'theme_essential').'</em>';
-                $branchurl = new moodle_url('/grade/report/overview/index.php', array('userid' => $USER->id));
-                $usermenu .= html_writer::tag('li', html_writer::link($branchurl, $branchlabel));
-            } else {
-                if (has_capability('gradereport/overview:view', $context)) {
-                    $branchlabel = '<em>'.$this->getfontawesomemarkup('list-alt').get_string('mygrades', 'theme_essential').'</em>';
-                    $params = array('userid' => $USER->id);
-                    if ($course->showgrades) {
-                        $params['id'] = $course->id;
-                    }
-                    $branchurl = new moodle_url('/grade/report/overview/index.php', $params);
-                    $usermenu .= html_writer::tag('li', html_writer::link($branchurl, $branchlabel));
-                }
+            //if ($course->id == SITEID) {
+            //    $branchlabel = '<em>'.$this->getfontawesomemarkup('list-alt').get_string('mygrades', 'theme_essential').'</em>';
+            //    $branchurl = new moodle_url('/grade/report/overview/index.php', array('userid' => $USER->id));
+            //    $usermenu .= html_writer::tag('li', html_writer::link($branchurl, $branchlabel));
+            //} else {
+            //    if (has_capability('gradereport/overview:view', $context)) {
+            //        $branchlabel = '<em>'.$this->getfontawesomemarkup('list-alt').get_string('mygrades', 'theme_essential').'</em>';
+            //        $params = array('userid' => $USER->id);
+            //        if ($course->showgrades) {
+            //            $params['id'] = $course->id;
+            //        }
+            //        $branchurl = new moodle_url('/grade/report/overview/index.php', $params);
+            //        $usermenu .= html_writer::tag('li', html_writer::link($branchurl, $branchlabel));
+            //    }
 
-                if (has_capability('gradereport/user:view', $context) && $course->showgrades) {
-                    // In Course also output Course grade links.
-                    $branchlabel = '<em>'.$this->getfontawesomemarkup('list-alt').
-                        get_string('coursegrades', 'theme_essential').'</em>';
-                    $branchurl = new moodle_url('/grade/report/user/index.php', array('id' => $course->id, 'userid' => $USER->id));
-                    $usermenu .= html_writer::tag('li', html_writer::link($branchurl, $branchlabel));
-                }
-            }
+            //    if (has_capability('gradereport/user:view', $context) && $course->showgrades) {
+            //        // In Course also output Course grade links.
+            //        $branchlabel = '<em>'.$this->getfontawesomemarkup('list-alt').
+            //            get_string('coursegrades', 'theme_essential').'</em>';
+            //        $branchurl = new moodle_url('/grade/report/user/index.php', array('id' => $course->id, 'userid' => $USER->id));
+            //        $usermenu .= html_writer::tag('li', html_writer::link($branchurl, $branchlabel));
+            //    }
+            //}
 
             // Check if badges are enabled.
             if (!empty($CFG->enablebadges) && has_capability('moodle/badges:manageownbadges', $context)) {
