@@ -960,7 +960,7 @@ class core_renderer extends \core_renderer {
                 $branchlabel = $this->getfontawesomemarkup('users').$branchtitle;
                 $branchurl = new moodle_url('/user/index.php', array('id' => $this->page->course->id));
                 $branch->add($branchlabel, $branchurl, $branchtitle, 100003);
-                //$context = context_course::instance($this->page->course->id); 
+                //$context = context_course::instance($this->page->course->id);
                 //if (((has_capability('gradereport/overview:view', $context) || has_capability('gradereport/user:view', $context)) &&
                 //        $this->page->course->showgrades) || has_capability('gradereport/grader:view', $context)) {
                 //    $branchtitle = get_string('grades');
@@ -1415,7 +1415,7 @@ class core_renderer extends \core_renderer {
         $usermenu = html_writer::start_tag('ul', array('class' => 'nav'));
         $usermenu .= html_writer::start_tag('li', array('class' => 'dropdown'));
 
-        if (!isloggedin()) {
+        if (!isloggedin() || isguestuser()) { // SEBTS add persistent login button even for guest users
             if ($this->page->pagelayout != 'login') {
                 $userpic = '<em>'.$this->getfontawesomemarkup('sign-in').get_string('login').'</em>';
                 $usermenu .= html_writer::link($loginurl, $userpic, array('class' => 'loginurl'));
