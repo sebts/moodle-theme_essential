@@ -148,6 +148,11 @@ $string['readme_title'] = 'Essential read-me';
 $string['readme_desc'] = 'Please {$a->url} file, which contains more information about the Essential theme including customisation.';
 $string['readme_click'] = 'click here for the README.txt';
 
+// Advert.
+$string['advert_heading'] = 'Theme Design Level 1';
+$string['advert_tagline'] = 'Want to know how to customise themes, but do not have a background in development, experience with php, and experience with Moodle Themes, then \'MoodleBites Theme Design Level 1\' is for you!  It will give you a gentle introduction to Moodle Theme development, and provide a good grounding should you wish to progress further.  Please click here for more information.';
+$string['advert_alttext'] = 'Theme Design Level 1 advertising banner';
+
 // General settings.
 $string['genericsettings'] = 'General';
 $string['generalheadingsub'] = 'General settings';
@@ -285,6 +290,11 @@ $string['floatingsubmitbuttonsdesc'] = 'Have a \'floating\' area that contains t
 $string['layout'] = 'Use a standard course layout';
 $string['layoutdesc'] = 'This theme is designed to put both block columns on the side.  If you prefer the standard Moodle course layout you can check this box and be returned to the old three column layout.';
 
+$string['coursetitleposition'] = 'Course title postition';
+$string['coursetitlepositiondesc'] = 'Choose between \'Above\' and \'Within\' for the course.  Where \'Above\' is above the side-pre, page-top and course-content regions and \'Within\' is within the course-content region as it was before this setting was introduced.';
+$string['above'] = 'Above';
+$string['within'] = 'Within';
+
 $string['categoryincoursebreadcrumbfeature'] = 'Categories in the course breadcrumb';
 $string['categoryincoursebreadcrumbfeaturedesc'] = 'Show the category links in the breadcrumb of the course.';
 
@@ -328,6 +338,14 @@ $string['themedefaultbuttonbackgroundhovercolour'] = 'Default button background 
 $string['themedefaultbuttonbackgroundhovercolourdesc'] = 'Set the background hover colour for all default buttons.';
 $string['themeiconcolor'] = 'Icon colour';
 $string['themeiconcolordesc'] = 'Set the colour for all icons.';
+$string['themesidepreblockbackgroundcolour'] = '\'side-pre\' block background colour';
+$string['themesidepreblockbackgroundcolourdesc'] = 'Set the background colour for the \'side-pre\' block.';
+$string['themesidepreblocktextcolour'] = '\'side-pre\' block text colour';
+$string['themesidepreblocktextcolourdesc'] = 'Set the text colour for the \'side-pre\' block.';
+$string['themesidepreblockurlcolour'] = '\'side-pre\' block link colour';
+$string['themesidepreblockurlcolourdesc'] = 'Set the link colour for the \'side-pre\' block.';
+$string['themesidepreblockhovercolour'] = '\'side-pre\' link hover background colour';
+$string['themesidepreblockhovercolourdesc'] = 'Set the link hover colour for the \'side-pre\' block.';
 $string['themenavcolor'] = 'Navigation text colour';
 $string['themenavcolordesc'] = 'Set the text colour for navigation.  Being the navigation bar and the breadcrumb fancy style.';
 $string['themestripetextcolour'] = 'Stripe text colour';
@@ -384,6 +402,14 @@ $string['alternativethemedefaultbuttonbackgroundhovercolour'] = 'Default button 
 $string['alternativethemedefaultbuttonbackgroundhovercolourdesc'] = 'Set the background hover colour for all default buttons {$a}.';
 $string['alternativethemeiconcolor'] = 'Alternative icon colour {$a}';
 $string['alternativethemeiconcolordesc'] = 'Set the alternative {$a} colour for all icons.';
+$string['alternativethemesidepreblockbackgroundcolour'] = 'Alternative {$a} \'side-pre\' block background colour';
+$string['alternativethemesidepreblockbackgroundcolourdesc'] = 'Set the alternative {$a} background colour for the \'side-pre\' block.';
+$string['alternativethemesidepreblocktextcolour'] = 'Alternative {$a} \'side-pre\' block text colour';
+$string['alternativethemesidepreblocktextcolourdesc'] = 'Set the alternative {$a} text colour for the \'side-pre\' block.';
+$string['alternativethemesidepreblockurlcolour'] = 'Alternative {$a} \'side-pre\' block link colour';
+$string['alternativethemesidepreblockurlcolourdesc'] = 'Set the alternative {$a} link colour for the \'side-pre\' block.';
+$string['alternativethemesidepreblockhovercolour'] = 'Alternative {$a} \'side-pre\' block link hover colour';
+$string['alternativethemesidepreblockhovercolourdesc'] = 'Set the alternative {$a} link hover colour for the \'side-pre\' block.';
 $string['alternativethemenavcolor'] = 'Navigation text colour {$a}';
 $string['alternativethemenavcolordesc'] = 'Set the alternative {$a} text colour for navigation.  Being the navigation bar and the breadcrumb fancy style.';
 $string['alternativethemehovercolor'] = 'Alternative theme hover colour {$a}';
