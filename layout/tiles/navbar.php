@@ -41,7 +41,8 @@ defined('MOODLE_INTERNAL') || die;
                         <?php echo $OUTPUT->get_title('navbar'); ?>
                     <div class="pull-<?php echo ($left) ? 'right' : 'left'; ?>">
                         <div class="usermenu navbarrightitem">
-                            <?php echo $OUTPUT->custom_menu_user(); ?>
+                            <?php // echo $OUTPUT->custom_menu_user(); // SEBTS ?>
+							<?php echo $OUTPUT->custom_SEBTS_nav_buttons($PAGE); // SEBTS; depends on custom function ?> 
                         </div>
                         <div class="messagemenu navbarrightitem">
                             <?php echo $OUTPUT->custom_menu_messages(); ?>

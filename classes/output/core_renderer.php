@@ -508,6 +508,35 @@ class core_renderer extends \core_renderer {
     }
 
     /**
+     * SEBTS: Renders the MY COURSES & LOG IN/OUT BUTTONS
+     * @param url_select $PAGE
+     * @return string $content
+     */
+
+    protected function custom_SEBTS_nav_buttons($PAGE) {
+        global $CFG;
+        if (isloggedin() and !isguestuser()) {
+            $content  = '<ul class="nav">';
+            $content .= '<li><a class="SEBTSbtn" href="'.$CFG->wwwroot.'/my">';
+            $content .= '<i class="fa fa-university"></i>&nbsp;&nbsp;MY COURSES</a></li>';
+            $content .= '<li><a class="SEBTSbtn" href="';
+            $content .= new moodle_url('/login/logout.php', array('sesskey' => sesskey()));
+            $content .= '"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;LOG OUT</a></li>';
+            $content .= '</ul>';
+            return $content;
+        }
+        else {
+            if ($PAGE->url != get_login_url()){
+                $content  = '<ul class="nav"><li><a class="SEBTSbtn" href="';
+                $content .= get_login_url();
+                $content .= '"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;LOG IN</a></li></ul>';
+                return $content;
+            }
+            return false;
+        }
+    }	
+
+    /**
      * Renders the custom_menu
      * @param custom_menu $menu
      * @return string $content
