@@ -30,6 +30,7 @@ if (empty($PAGE->layout_options['nofooter'])) { ?>
     <footer role="contentinfo" id="page-footer">
         <div class="container-fluid">
             <?php echo $OUTPUT->essential_edit_button('footer'); ?>
+            <?php if (isloggedin() && is_siteadmin()) { ?>
             <div class="row-fluid footerblocks">
                 <div class="footerblock span4">
                     <?php echo $OUTPUT->essential_blocks('footer-left'); ?>
@@ -41,6 +42,7 @@ if (empty($PAGE->layout_options['nofooter'])) { ?>
                     <?php echo $OUTPUT->essential_blocks('footer-right'); ?>
                 </div>
             </div>
+            <?php } ?>
             <div class="footerlinks row-fluid">
                 <hr/>
                 <span class="helplink"><?php echo page_doc_link(get_string('moodledocslink')); ?></span>
